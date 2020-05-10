@@ -248,6 +248,11 @@ class ModelInspector(object):
         # Press Q on keyboard to  exit
         if cv2.waitKey(1) & 0xFF == ord('q'):
           break
+        
+     print("[INFO] cleaning up...")
+     out_ptr.release()
+     cap.release()        
+      
 
   def inference_single_image(self, image_image_path, output_dir, **kwargs):
     driver = inference.InferenceDriver(self.model_name, self.ckpt_path,
